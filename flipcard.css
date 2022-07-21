@@ -10,7 +10,7 @@ body{
     font-size: 2rem;
     color:black;
     font-family: sans-serif;
-   width: 90%;
+    width: 90%;
     padding: 5rem;
     margin: 0 auto;
 }
@@ -18,18 +18,20 @@ body{
     height: 52rem;
     width: 60%;
     color: white;
-    transition: all .8s;
     perspective: 150rem;
     position: relative;
-}
-.card:hover{
-    transform: rotateY(180deg);
+    
 }
 
+
 .card__side {
-height: 52rem;
-position: absolute;
-width: 100%;
+    height: 52rem;
+    position: absolute;
+    backface-visibility: hidden;
+        transition: all .8s;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 .card__side--front {
@@ -38,4 +40,11 @@ width: 100%;
 
 .card__side--back {
         background-color:red;
+        transform: rotateY(180deg);
+}
+.card:hover .card__side--front {
+    transform: rotateY(180deg);
+}
+.card:hover .card__side--back {
+    transform: rotateY(0);
 }
